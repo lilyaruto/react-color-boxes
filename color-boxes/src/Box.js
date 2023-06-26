@@ -34,7 +34,11 @@ class Box extends Component {
     }
 
     pickColor() {
-        this.setState({ color: this.props.colors[Math.floor(Math.random() * (this.props.colors.length))] });
+        let newColor;
+        do {
+            newColor = this.props.colors[Math.floor(Math.random() * (this.props.colors.length))];
+        } while (this.state.color === newColor);
+        this.setState({ color:  newColor});
     }
 
     render() {
